@@ -1,0 +1,25 @@
+{
+    "title": "reding",
+    "author": "locus",
+    "description": "reding",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "structure": {
+        "readme": "index.md"
+    },
+    "theme-default": {
+        "showLevel": true
+    },
+    "fontsettings": {
+        "theme": "white",
+        "family": "sans",
+        "size": 2
+    },
+    "links": {
+        "sidebar": {
+            "github": "https://github.com/tongchengtraffic"
+        }
+    },
+    "plugins": [],
+    "pluginsConfig": {}
+}
