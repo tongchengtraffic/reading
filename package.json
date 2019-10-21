@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "serve": "gitbook serve",
+        "build": "gitbook build ./ docs"
+    }
+}

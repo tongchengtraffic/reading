@@ -1,0 +1,344 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>小程序和webview交互 · reding</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="locus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../regexp/often.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/tongchengtraffic" target="_blank" class="custom-link">github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    阅读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../regexp/often.html">
+            
+                <a href="../regexp/often.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="h5-interaction.html">
+            
+                <a href="h5-interaction.html">
+            
+                    
+                    小程序和webview交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >小程序和webview交互</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5C0F;&#x7A0B;&#x5E8F;&#x4E0E;h5&#x9875;&#x9762;&#x4EA4;&#x4E92;">&#x5C0F;&#x7A0B;&#x5E8F;&#x4E0E;H5&#x9875;&#x9762;&#x4EA4;&#x4E92;</h1>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<p>&#x2003;&#x2003;&#x76EE;&#x524D;&#x5C0F;&#x7A0B;&#x5E8F;&#x9875;&#x9762;&#x56DE;&#x9000;H5&#x662F;&#x65E0;&#x6CD5;&#x5E26;&#x5165;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4F8B;&#x5982;&#x7528;&#x6237;A&#x5728;H5&#x4E0A;&#x9009;&#x62E9;&#x62CD;&#x7167;&#xFF0C;&#x8DF3;&#x8F6C;&#x5230;&#x5C0F;&#x7A0B;&#x5E8F;&#x9875;&#x9762;&#x62CD;&#x7167;&#x538B;&#x7F29;&#x5E76;&#x5C06;&#x7167;&#x7247;&#x5730;&#x5740;&#x5E26;&#x56DE;H5&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;<br></p>
+<p>&#x2003;&#x2003;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E0E;H5&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x76EE;&#x524D;&#x53EA;&#x6709;&#x5B98;&#x65B9;&#x7ED9;&#x51FA;&#x7684;postMessage&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x80FD;&#x5728;&#x6EE1;&#x8DB3;&#x7279;&#x5B9A;&#x65F6;&#x673A;&#x4E0B;&#x89E6;&#x53D1;message&#x4E8B;&#x4EF6;&#x624D;&#x80FD;&#x62FF;&#x5230;&#x6570;&#x636E;&#x3002;<br></p>
+<p>&#x2003;&#x2003;&#x4E3A;&#x6EE1;&#x8DB3;&#x65E5;&#x76CA;&#x7E41;&#x6742;&#x7684;&#x4EA7;&#x54C1;&#x9700;&#x6C42;&#xFF0C;&#x63D0;&#x9AD8;&#x8FED;&#x4EE3;&#x901F;&#x5EA6;&#xFF0C;&#x53C8;&#x4E0D;&#x80FD;&#x653E;&#x5F03;&#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x4F18;&#x52BF;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x6253;&#x901A;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E0E;H5&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x3002;</p>
+<h2 id="&#x5B9E;&#x73B0;&#x65B9;&#x6848;">&#x5B9E;&#x73B0;&#x65B9;&#x6848;</h2>
+<p>&#x5229;&#x7528;H5&#x7684;hash&#x7279;&#x6027;&#xFF0C;&#x4F7F;H5&#x77E5;&#x9053;&#x6709;&#x6570;&#x636E;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x4E14;&#x9875;&#x9762;&#x4E0D;&#x4F1A;&#x5237;&#x65B0;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<p><img src="https://file.40017.cn/trainwechat/lct/h5lct.png" width="70%"></p>
+<h3 id="&#x5173;&#x4E8E;windowhistorygo-1">&#x5173;&#x4E8E;window.history.go(-1)</h3>
+<p>hash&#x53D8;&#x66F4;&#x4F1A;&#x5BFC;&#x81F4;&#x9875;&#x9762;&#x5386;&#x53F2;&#x6808;&#x957F;&#x5EA6;+1&#xFF0C;&#x6267;&#x884C;window.history.go(-1)&#x4FDD;&#x8BC1;&#x548C;&#x4E4B;&#x524D;&#x7684;url&#x4E00;&#x81F4;&#xFF0C;&#x5E76;&#x4E14;history.go(-1)&#x53EA;&#x540E;&#x9000;&#x4E0D;&#x5237;&#x65B0;&#xFF0C;&#x800C;history.back()&#x540E;&#x9000;+&#x5237;&#x65B0;</p>
+<h3 id="&#x8E29;&#x5751;&#xFF1A;">&#x8E29;&#x5751;&#xFF1A;</h3>
+<ul>
+<li>webview&#x7684;src&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x968F;&#x7740;H5&#x5730;&#x5740;&#x7684;&#x53D8;&#x5316;&#x800C;&#x6539;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;H5&#x8DF3;&#x8F6C;&#x5C0F;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5C06;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;url&#x4F20;&#x9012;&#x8FC7;&#x53BB;&#xFF0C;&#x8BBE;&#x7F6E;H5&#x7684;&#x6570;&#x636E;&#x65F6;&#x56DE;&#x4F20;&#x8FC7;&#x53BB;&#xFF0C;&#x7136;&#x540E;&#x5728;onShow&#x4E2D;&#x91CD;&#x65B0;&#x7EC4;&#x5408;url</li>
+<li>&#x6539;&#x53D8;&#x7684;hash&#x503C;&#x5FC5;&#x987B;&#x8981;&#x548C;&#x4E4B;&#x524D;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x786E;&#x4FDD;webview&#x7684;src&#x66F4;&#x65B0;&#xFF0C;&#x89E6;&#x53D1;H5&#x7684;hashchange</li>
+</ul>
+<h2 id="&#x4F7F;&#x7528;&#x793A;&#x4F8B;">&#x4F7F;&#x7528;&#x793A;&#x4F8B;</h2>
+<h3 id="&#x5C0F;&#x7A0B;&#x5E8F;&#x8DF3;&#x8F6C;h5">&#x5C0F;&#x7A0B;&#x5E8F;&#x8DF3;&#x8F6C;H5</h3>
+<pre><code class="lang-js">wx.navigateTo({
+    url: <span class="hljs-string">&apos;webview&#x8DEF;&#x5F84;&apos;</span> + <span class="hljs-string">`?src=<span class="hljs-subst">${encodeURIComponent(h5&#x5730;&#x5740;)}</span>`</span>
+})
+</code></pre>
+<h3 id="h5&#x8DF3;&#x8F6C;&#x5C0F;&#x7A0B;&#x5E8F;">H5&#x8DF3;&#x8F6C;&#x5C0F;&#x7A0B;&#x5E8F;</h3>
+<pre><code class="lang-js"><span class="hljs-built_in">window</span>.wx.miniProgram.navigateTo({
+    <span class="hljs-comment">//backUrl&#x53C2;&#x6570;&#x8DF3;&#x8F6C;&#x7684;&#x5C0F;&#x7A0B;&#x5E8F;&#x9875;&#x9762;&#x4F1A;&#x8BB0;&#x4F4F;&#xFF0C;&#x4EE5;&#x4F9B;&#x540E;&#x7EED;&#x56DE;&#x4F20;&#x4F7F;&#x7528;</span>
+    url: <span class="hljs-string">&apos;&#x5C0F;&#x7A0B;&#x5E8F;&#x9875;&#x9762;&#x5730;&#x5740;...&apos;</span> + <span class="hljs-string">`&amp;backUrl=<span class="hljs-subst">${encodeURIComponent(H5&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x5730;&#x5740;location.href)}</span>`</span>
+})
+</code></pre>
+<h2 id="&#x5C0F;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x793A;&#x4F8B;">&#x5C0F;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h2>
+<pre><code class="lang-js">Page({
+    data: {
+        src: <span class="hljs-string">&apos;&apos;</span>,
+        canHtml: wx.canIUse &amp;&amp; wx.canIUse(<span class="hljs-string">&apos;web-view&apos;</span>)
+    },
+    onLoad(options) {
+        <span class="hljs-keyword">let</span> src = <span class="hljs-built_in">decodeURIComponent</span>(options.src || <span class="hljs-string">&apos;&apos;</span>).replace(<span class="hljs-regexp">/(^\s*)|(\s*$)/g</span>, <span class="hljs-string">&apos;&apos;</span>);
+        <span class="hljs-comment">//&#x8BB0;&#x5F55;h5&#x521D;&#x59CB;&#x7684;URL</span>
+        <span class="hljs-keyword">this</span>.baseUrl = src;
+        <span class="hljs-keyword">this</span>.setData({
+            src: src || <span class="hljs-string">&apos;&apos;</span>
+        })
+    },
+    <span class="hljs-comment">/**
+    * &#x8BBE;&#x7F6E;H5&#x7684;&#x6570;&#x636E;
+    * @param {Object} res - { data: &apos;xxx&apos;, backUrl: &apos;xxx&apos; }
+    */</span>
+    setH5Data(res) {
+        <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x5904;&#x7406;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x8E29;&#x5751;&#x7684;&#x7B2C;&#x4E8C;&#x70B9;&#xFF0C;v: Date.now()&#x65F6;&#x95F4;&#x6233;&#x786E;&#x4FDD;&#x62FC;&#x63A5;webview&#x7684;src&#x4E0E;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x89E6;&#x53D1;H5&#x7684;hashchange</span>
+        <span class="hljs-keyword">this</span>.miniappData = <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">JSON</span>.stringify({data: res.data, v: <span class="hljs-built_in">Date</span>.now()}));
+        <span class="hljs-keyword">this</span>.backUrl = res.backUrl ? <span class="hljs-built_in">decodeURIComponent</span>(res.backUrl) : <span class="hljs-keyword">this</span>.baseUrl;
+    },
+    onShow() {
+        <span class="hljs-comment">//h5&#x7AD9;&#x4F7F;&#x7528;&#x7684;&#x662F;vue&#x8DEF;&#x7531;hash&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x91CC;&#x76F4;&#x63A5;&#x62FC;&#x63A5;&#x6570;&#x636E;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.miniappData) {
+            <span class="hljs-keyword">let</span> src = <span class="hljs-keyword">this</span>.backUrl + (<span class="hljs-keyword">this</span>.backUrl.indexOf(<span class="hljs-string">&apos;?&apos;</span>) &gt; <span class="hljs-number">-1</span> ? <span class="hljs-string">&apos;&amp;&apos;</span> : <span class="hljs-string">&apos;?&apos;</span>) + <span class="hljs-string">`_miniappData=<span class="hljs-subst">${this.miniappData}</span>`</span>;
+            <span class="hljs-keyword">this</span>.miniappData = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>.setData({
+                src
+            })
+        }
+    }
+})
+</code></pre>
+<h2 id="&#x5C0F;&#x7A0B;&#x5E8F;&#x4F20;&#x503C;&#x7ED9;h5">&#x5C0F;&#x7A0B;&#x5E8F;&#x4F20;&#x503C;&#x7ED9;H5</h2>
+<h4 id="&#x6CE8;&#x610F;&#xFF1A;&#x5C0F;&#x7A0B;&#x5E8F;&#x8FD4;&#x56DE;h5&#x5148;&#x8C03;&#x7528;seth5data&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x6570;&#x636E;&#x518D;&#x8FD4;&#x56DE;&#xFF0C;&#x53C2;&#x6570;&#x683C;&#x5F0F;--data-xxx-backurl-xxx-">&#x6CE8;&#x610F;&#xFF1A;&#x5C0F;&#x7A0B;&#x5E8F;&#x8FD4;&#x56DE;H5&#x5148;&#x8C03;&#x7528;setH5Data&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x6570;&#x636E;&#x518D;&#x8FD4;&#x56DE;&#xFF0C;&#x53C2;&#x6570;&#x683C;&#x5F0F; { data: &apos;xxx&apos;, backUrl: &apos;xxx&apos; }</h4>
+<pre><code class="lang-js">goH5Page(data) {
+    <span class="hljs-keyword">let</span> pages = getCurrentPages();
+    <span class="hljs-keyword">let</span> pre = pages[pages.length - <span class="hljs-number">2</span>];
+    pre.setH5Data &amp;&amp; pre.setH5Data({
+        data: data,
+        backUrl: <span class="hljs-keyword">this</span>.backUrl
+    });
+    wx.navigateBack();
+}
+</code></pre>
+<h2 id="&#x76D1;&#x542C;&#x793A;&#x4F8B;&#xFF1A;vue&#x8DEF;&#x7531;hash&#x6A21;&#x5F0F;">&#x76D1;&#x542C;&#x793A;&#x4F8B;&#xFF1A;vue&#x8DEF;&#x7531;hash&#x6A21;&#x5F0F;</h2>
+<pre><code class="lang-js">watch: {
+    <span class="hljs-string">&quot;$route.query._miniappData&quot;</span>: {
+        handler(val) {
+            <span class="hljs-comment">//vue&#x6709;&#x5B50;&#x8DEF;&#x7531;&#xFF0C;this.routePath&#x8BB0;&#x5F55;&#x4E86;&#x5F53;&#x524D;&#x9875;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x662F;&#x5B50;&#x8DEF;&#x7531;&#xFF0C;&#x5219;&#x53EA;&#x89E6;&#x53D1;&#x5B50;&#x8DEF;&#x7531;&#x7684;&#x76D1;&#x542C;</span>
+            <span class="hljs-keyword">if</span> (val &amp;&amp; <span class="hljs-keyword">this</span>.$route.path == <span class="hljs-keyword">this</span>.routePath) {
+                <span class="hljs-built_in">window</span>.history.go(<span class="hljs-number">-1</span>); <span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x662F;&#x6838;&#x5FC3;</span>
+                <span class="hljs-keyword">let</span> res = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">decodeURIComponent</span>(val)).data || <span class="hljs-string">&quot;&quot;</span>;
+                xxx &#x4E1A;&#x52A1;&#x903B;&#x8F91;
+            }
+        },
+        deep: <span class="hljs-literal">true</span>
+    }
+}
+</code></pre>
+<h4 id="tips">Tips</h4>
+<ul>
+<li>&#x4E0A;&#x8FF0;&#x793A;&#x4F8B;&#x662F;&#x57FA;&#x7840;&#x5B9E;&#x73B0;&#xFF0C;&#x6709;&#x5176;&#x4ED6;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#x53EF;&#x6269;&#x5C55;</li>
+<li>&#x8BE5;&#x529F;&#x80FD;&#x5DF2;&#x4E0A;&#x7EBF;&#xFF0C;&#x4F53;&#x9A8C;&#x5F88;&#x68D2;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../regexp/often.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 正则表达式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"小程序和webview交互","level":"1.3","depth":1,"previous":{"title":"正则表达式","level":"1.2","depth":1,"path":"regexp/often.md","ref":"regexp/often.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"style.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"locus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"fontsettings":{"theme":"white","family":"sans","size":2},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"reding","language":"zh-hans","links":{"sidebar":{"github":"https://github.com/tongchengtraffic"}},"gitbook":"3.2.3","description":"reding","theme-default":{"showLevel":true}},"file":{"path":"miniapp/h5-interaction.md","mtime":"2019-10-21T08:48:54.488Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-21T08:52:41.242Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

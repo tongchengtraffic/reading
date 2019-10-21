@@ -4,6 +4,9 @@
     "description": "reding",
     "language": "zh-hans",
     "gitbook": "3.2.3",
+    "styles": {
+        "website": "style.css"
+    },
     "structure": {
         "readme": "index.md"
     },
