@@ -114,3 +114,5 @@ watch: {
 #### Tips
 * 上述示例是基础实现，有其他业务需求可扩展
 * 该功能已上线，体验很棒
+
+![小程序与H5页面交互](https://file.40017.cn/train4in1/img/ezgif-5-50060ffa55ec.gif)
