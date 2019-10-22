@@ -11,7 +11,7 @@
 ## 实现方案
 利用H5的hash特性，使H5知道有数据变化，并且页面不会刷新，如下图所示流程：
 
-<img src="https://file.40017.cn/trainwechat/lct/h5lct.png" width="70%">
+<img src="https://file.40017.cn/trainwechat/lct/h5lct.png" width="90%">
 
 ### 关于window.history.go(-1)
 hash变更会导致页面历史栈长度+1，执行window.history.go(-1)保证和之前的url一致，并且history.go(-1)只后退不刷新，而history.back()后退+刷新
@@ -114,5 +114,9 @@ watch: {
 #### Tips
 * 上述示例是基础实现，有其他业务需求可扩展
 * 该功能已上线，体验很棒
+
+#### 交互展示
+
+> 在下面的录屏展示中，除了《拍照识别身份证》页面为小程序的，其余的所有页面都是h5页面。
 
 ![小程序与H5页面交互](https://file.40017.cn/train4in1/img/ezgif-5-50060ffa55ec.gif)
